@@ -1,4 +1,4 @@
-package org.example;
+package org.pluralsight;
 
 import java.util.Scanner;
 
