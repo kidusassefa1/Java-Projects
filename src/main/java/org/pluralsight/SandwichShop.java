@@ -26,15 +26,15 @@ public class SandwichShop {
 
         String age = scanner.nextLine();
 
+        float loadedPrice;
         float discount;
-        float loaded;
 
         if (wantsLoaded.equalsIgnoreCase("yes") && size == 1) {
-            loaded = 1.00f;
+            loadedPrice = 1.00f;
         } else if (wantsLoaded.equalsIgnoreCase("yes") && size == 2) {
-            loaded = 1.75f;
+            loadedPrice = 1.75f;
         } else {
-            loaded = 0;
+            loadedPrice = 0;
         }
 
         if (age.equals("A")) {
@@ -48,10 +48,10 @@ public class SandwichShop {
         }
 
         if (size == 1) {
-            float totalPrice = 5.45f + (5.45f * discount) + loaded;
+            float totalPrice = 5.45f + (5.45f * discount) + loadedPrice;
             System.out.printf("Your total is %.2f", totalPrice);
         } else if (size == 2) {
-            float totalPrice = 8.95f + (8.95f * discount) + loaded;
+            float totalPrice = 8.95f + (8.95f * discount) + loadedPrice;
             System.out.printf("Your total is %.2f", totalPrice);
         } else {
             System.out.println("Wrong Choice, try again ...");
