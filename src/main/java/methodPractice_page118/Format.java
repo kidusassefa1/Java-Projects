@@ -6,6 +6,6 @@ public class Format {
     }
 
     public static String formatName (String first, String last) {
-        return(first + ", " + last);
+        return(last + ", " + first);
     }
 }
