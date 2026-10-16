@@ -33,15 +33,15 @@ public class FinancialCalculators {
         scanner.nextLine();
 
         if (choice == 1) {
-            calculator1(principal, annualInterest, years);
+            mortgageCalculator(principal, annualInterest, years);
         } else if (choice == 2) {
-            calculator2(principal, annualInterest, years);
+            futureValueCalculator(principal, annualInterest, years);
         } else if (choice == 3) {
-            calculator3(principal, annualInterest, years);
+            presentValueCalculator(principal, annualInterest, years);
         }
     }
 
-    public static void calculator1(double principal, double annualInterest, int years) {
+    public static void mortgageCalculator(double principal, double annualInterest, int years) {
 
         double i = (annualInterest / 100) / 12;
         int n = years * 12;
@@ -54,7 +54,7 @@ public class FinancialCalculators {
         System.out.println();
     }
 
-    public static void calculator2(double p, double r, int t) {
+    public static void futureValueCalculator(double p, double r, int t) {
         int d = 365;
         int n = d * t;
 
@@ -64,7 +64,7 @@ public class FinancialCalculators {
         System.out.printf("your CD's ending balance will be %.3f and you would have earned %.3f in interest", fv, totalInterestEarned);
     }
 
-    public static void calculator3(double monthlyPayout, double annualRate, int years) {
+    public static void presentValueCalculator(double monthlyPayout, double annualRate, int years) {
         int n = years * 12;
         double i = (annualRate / 100) / 12;
 
