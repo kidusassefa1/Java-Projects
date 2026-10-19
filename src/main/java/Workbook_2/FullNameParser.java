@@ -20,16 +20,13 @@ public class FullNameParser {
             middleName = nameParts[1];
             lastName = nameParts[2];
         } else {
-            firstName += nameParts[0];
+            firstName = nameParts[0];
             middleName = "N/A";
-            lastName += nameParts[1];
+            lastName = nameParts[1];
         }
 
         System.out.printf("First Name: %s\n" +
                           "Middle Name: %s\n" +
                           "Last Name: %s", firstName, middleName, lastName);
-
-
-
     }
 }
