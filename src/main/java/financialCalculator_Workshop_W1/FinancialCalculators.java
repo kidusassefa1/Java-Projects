@@ -57,6 +57,7 @@ public class FinancialCalculators {
     public static void futureValueCalculator(double p, double r, int t) {
         int d = 365;
         int n = d * t;
+        String name = "f";
 
         double fv = p * (Math.pow(1 + ((r /100) / d), n));
         double totalInterestEarned = fv - p;
