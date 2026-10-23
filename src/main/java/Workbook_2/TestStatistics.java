@@ -1,4 +1,4 @@
-package Workbook_2.Array_Exercise;
+package Workbook_2;
 
 import java.util.Arrays;
 
