@@ -55,5 +55,8 @@ public class Vehicle {
         this.price = price;
     }
 
-
+    @Override
+    public String toString() {
+        return "details...";
+    }
 }
