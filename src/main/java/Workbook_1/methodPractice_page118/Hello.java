@@ -1,4 +1,4 @@
-package methodPractice_page118;
+package Workbook_1.methodPractice_page118;
 
 public class Hello {
     public static void main(String[] args) {

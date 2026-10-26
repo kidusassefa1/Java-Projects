@@ -1,4 +1,4 @@
-package financialCalculator_Workshop_W1;
+package Workbook_1.financialCalculator_Workshop_W1;
 
 import java.util.Scanner;
 

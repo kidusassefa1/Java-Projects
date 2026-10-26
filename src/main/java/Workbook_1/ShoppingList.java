@@ -1,4 +1,4 @@
-package com.pluralsight;
+package Workbook_1;
 
 public class ShoppingList {
     public static void main(String[] args) {

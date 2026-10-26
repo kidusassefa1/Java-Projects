@@ -1,4 +1,4 @@
-package org.pluralsight;
+package Workbook_1;
 
 import java.util.Scanner;
 

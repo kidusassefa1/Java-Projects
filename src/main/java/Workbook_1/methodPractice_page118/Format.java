@@ -1,4 +1,4 @@
-package methodPractice_page118;
+package Workbook_1.methodPractice_page118;
 
 public class Format {
     public static void main(String[] args) {

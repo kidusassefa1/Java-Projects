@@ -1,4 +1,4 @@
-package methodPractice_page118;
+package Workbook_1;
 
 import java.util.Scanner;
 
@@ -15,17 +15,12 @@ public class PayrollCalculator {
         System.out.print("What is your pay rate? $");
         float payRate = scanner.nextFloat();
 
-        System.out.println(payCalculator(name, hours, payRate));
-    }
-
-    static String payCalculator(String name, float hours, float payRate){
-
         if ( hours > 40) {
             float totalPay = ((hours - 40) * 1.5f * payRate) + (40 * payRate);
-            return String.format("%s, you have overtime this week. Your pay for this work week is: $%.2f? ", name, totalPay);
+            System.out.printf("%s, you have overtime this week. Your pay for this work week is: $%.2f? ", name, totalPay);
         } else {
             float totalPay = hours * payRate;
-            return String.format("%s, your pay for this work week is: $%.2f? ", name, totalPay);
+            System.out.printf("%s, your pay for this work week is: $%.2f? ", name, totalPay);
         }
     }
 }
