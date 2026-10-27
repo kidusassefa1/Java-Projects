@@ -11,18 +11,10 @@ public class CompareNumbers {
     }
 
     static boolean isEven(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
 
     static boolean isPositive(double number) {
-        if (number > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number > 0;
     }
 }
