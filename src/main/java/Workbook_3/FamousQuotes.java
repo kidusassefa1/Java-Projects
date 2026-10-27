@@ -19,12 +19,12 @@ public class FamousQuotes {
             System.out.println("\nWelcome to Quotes Glossary!");
             do {
                 try {
-                    choice = scanner.nextInt();
                     System.out.print("""
                             
                             1. Display Famous Quotes
                             2. Exit
                             Choose 1 or 2:\s""");
+                    choice = scanner.nextInt();
                     scanner.nextLine();
 
                     switch (choice) {
