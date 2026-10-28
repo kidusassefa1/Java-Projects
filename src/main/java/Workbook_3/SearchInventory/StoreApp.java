@@ -77,8 +77,7 @@ public class StoreApp {
     private static void listAllProduct() {
         System.out.println("We carry the following inventory: ");
         for (Product p : inventory) {
-            System.out.printf("id: %d | Name: %s | Price: $%.2f%n",
-                    p.getId(), p.getName(), p.getPrice());
+            System.out.print(p);
         }
     }
 
@@ -88,7 +87,7 @@ public class StoreApp {
 
         for (Product p : inventory) {
             if (p.getId() == Integer.parseInt(ID)) {
-                System.out.printf("\nItem Found! %d -- %s -- %f", p.getId(), p.getName(), p.getPrice());
+                System.out.print("\nItem Found! " + p);
                 return;
             }
         }
@@ -107,7 +106,7 @@ public class StoreApp {
         for (Product p : inventory) {
             if (p.getPrice() >= minPrice && p.getPrice() <= maxPrice) {
                 isFound = true;
-                System.out.printf("\nItem Found! %d -- %s -- %f", p.getId(), p.getName(), p.getPrice());
+                System.out.print("\nItem Found!" + p);
 
             }
         }
@@ -119,6 +118,8 @@ public class StoreApp {
     private static void writeToFile() {
         try {
             bufWriter = new BufferedWriter(new FileWriter("DataFiles/inventory.csv", true));
+
+
 
 
 
