@@ -59,8 +59,6 @@ public class StoreAppHashMap {
         } while (!choice.equals("5"));
     }
 
-    //TODO: Implement the addProduct method
-
     private static void addProduct() {
         System.out.print("What's the ID: ");
         int id = Integer.parseInt(scanner.nextLine());
