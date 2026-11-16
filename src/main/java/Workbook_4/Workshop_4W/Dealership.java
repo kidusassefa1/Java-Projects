@@ -7,7 +7,7 @@ public class Dealership {
     public String name;
     public String address;
     public String phone;
-    public ArrayList<Vehicle> inventory;
+    public ArrayList<Vehicle> inventory = new ArrayList<>();
 
     public Dealership(String name, String address, String phone) {
         this.name = name;
@@ -40,11 +40,30 @@ public class Dealership {
     }
 
     public ArrayList<Vehicle> getInventoryByPrice(BigDecimal min, BigDecimal max) {
-        return null;
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        if (min.compareTo(max) > 0) {
+            System.out.println("Min value can't be greater than Max");
+            return null;
+        } else {
+            for (Vehicle vehicle : inventory) {
+                if (vehicle.price.compareTo(min) <= 0 && vehicle.price.compareTo(max) >= 0) {
+                    vehicleList.add(vehicle);
+                }
+            }
+            return vehicleList;
+        }
     }
 
     public ArrayList<Vehicle> getInventoryByMakeModel(String make, String model) {
-        return null;
+        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.model.equalsIgnoreCase(model) && vehicle.make.equalsIgnoreCase(make)) {
+                vehicleList.add(vehicle);
+            }
+        }
+        return vehicleList;
+
     }
 
     public ArrayList<Vehicle> getInventoryByYear(int min, int max) {
@@ -66,5 +85,14 @@ public class Dealership {
     public ArrayList<Vehicle> getAllVehicles() {
         return null;
     }
+
+    public void addVehicles(Vehicle vehicle) {
+
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+
+    }
+
 
 }
