@@ -3,14 +3,14 @@ package Workbook_4.Workshop_4W;
 import java.math.BigDecimal;
 
 public class Vehicle {
-    public int vin;
-    public int year;
-    public String make;
-    public String model;
-    public String vehicleType;
-    public String color;
-    public int odometer;
-    public BigDecimal price;
+    private int vin;
+    private int year;
+    private String make;
+    private String model;
+    private String vehicleType;
+    private String color;
+    private int odometer;
+    private BigDecimal price;
 
     public Vehicle(int vin, int year, String make, String model, String vehicleType, String color, int odometer, BigDecimal price) {
         this.vin = vin;
@@ -89,6 +89,6 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return String.format("%d | %d | %s | %s | %s | %s | %d | %s", vin, year, make, model, vehicleType, color, odometer, price);
+        return String.format("%d|%d|%s|%s|%s|%s|%d|%s", vin, year, make, model, vehicleType, color, odometer, price);
     }
 }
