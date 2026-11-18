@@ -27,17 +27,11 @@ public class Dealership {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public ArrayList<Vehicle> getInventoryByPrice(BigDecimal min, BigDecimal max) {
         ArrayList<Vehicle> vehicleList = new ArrayList<>();
@@ -63,7 +57,6 @@ public class Dealership {
             }
         }
         return vehicleList;
-
     }
 
     public ArrayList<Vehicle> getInventoryByYear(int min, int max) {
