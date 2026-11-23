@@ -2,6 +2,9 @@
 package Workbook_5.Workshop_5W;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,7 +34,8 @@ public class UserInterface {
             System.out.println("7 - List ALL vehicles");
             System.out.println("8 - Add a vehicle");
             System.out.println("9 - Remove a vehicle");
-            System.out.println("99 - Quit");
+            System.out.println("10 - Sell or Lease a Vehicle");
+            System.out.println("0 - Quit");
 
             choice = readInt("Enter your choice: ");
 
@@ -62,6 +66,9 @@ public class UserInterface {
                     break;
                 case 9:
                     processRemoveVehicleRequest();
+                    break;
+                case 10:
+                    processSellLeaseVehicleRequest();
                     break;
                 case 99:
                     System.out.println("Thank you for using Car Dealership!");
@@ -254,7 +261,6 @@ public class UserInterface {
             return;
         }
 
-        System.out.println("\nMatching vehicles:");
         System.out.println("----------------------------------------");
 
         int count = 1;
@@ -265,6 +271,70 @@ public class UserInterface {
 
         System.out.println("----------------------------------------");
         System.out.println("Total vehicles: " + vehicleList.size());
+    }
+
+    private void processSellLeaseVehicleRequest() {
+        processGetAllVehiclesRequest();
+        int vin = readInt("Enter VIN: ");
+        Vehicle selectedVehicle = null;
+
+        for (Vehicle vehicle : dealership.getAllVehicles()) {
+            if (vehicle.getVin() == vin) {
+                selectedVehicle = vehicle;
+                break;
+            }
+        }
+
+        if (selectedVehicle == null) {
+            System.out.println("Vehicle not found.");
+            return;
+        }
+
+        System.out.println("1 - Sell\n2 - Lease");
+        int choice = readInt("Choose an option: ");
+
+        if (choice != 1 && choice != 2) {
+            System.out.println("Invalid option.");
+            return;
+        }
+
+        if (choice == 2 && Year.now().getValue() - selectedVehicle.getYear() > 3) {
+            System.out.println("Vehicle is too old to lease.");
+            return;
+        }
+
+        System.out.print("Customer name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Customer email: ");
+        String email = scanner.nextLine();
+
+        String date = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+        Contract contract;
+
+        if (choice == 1) {
+            System.out.print("Financing? (Y/N): ");
+            boolean financing = scanner.nextLine().equalsIgnoreCase("Y");
+            contract = new SalesContract(date, name, email, selectedVehicle, financing);
+        } else {
+            contract = new LeaseContract(date, name, email, selectedVehicle);
+        }
+
+        System.out.printf("Total: $%,.2f%n", contract.getTotalPrice());
+        System.out.printf("Monthly: $%,.2f%n", contract.getMonthlyPayment());
+
+        System.out.print("Confirm transaction? (Y/N): ");
+        if (!scanner.nextLine().equalsIgnoreCase("Y")) {
+            System.out.println("Transaction cancelled.");
+            return;
+        }
+
+        ContractDataManager manager = new ContractDataManager();
+        manager.saveContract(contract);
+        dealership.removeVehicle(selectedVehicle);
+        dfm.saveDealership(dealership);
+
+        System.out.println("Transaction completed!");
     }
 
     private int readInt(String prompt) {
