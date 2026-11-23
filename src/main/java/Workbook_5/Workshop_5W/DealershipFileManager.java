@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class DealershipFileManager {
     private BufferedReader bufReader;
     private static BufferedWriter bufWriter;
-    private static final String fileName = "DataFile_Workshop_4w/inventory.csv";
+    private static final String fileName = "DataFile_Workshop_5w/inventory.csv";
     private Dealership dealership;
 
     public Dealership getDealership() {
