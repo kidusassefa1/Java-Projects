@@ -86,4 +86,19 @@ public class SalesContract extends Contract{
 
         return BigDecimal.valueOf(monthlyPayment);
     }
+
+    @Override
+    public String toString() {
+        return String.format("SALE|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s",
+                getDate(),
+                getCustomerName(),
+                getCustomerEmail(),
+                getVehicleSold(),
+                getSalesTax(),
+                getRecordingFee(),
+                getProcessingFee(),
+                getTotalPrice(),
+                isFinancing() ? "YES" : "NO",
+                getMonthlyPayment());
+    }
 }

@@ -2,7 +2,7 @@ package Workbook_5.Workshop_5W;
 
 import java.math.BigDecimal;
 
-public class LeaseContract extends Contract{
+public class LeaseContract extends Contract {
 
     private BigDecimal expectedEndingValue;
     private BigDecimal leaseFee;
@@ -47,5 +47,18 @@ public class LeaseContract extends Contract{
         double monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
 
         return BigDecimal.valueOf(monthlyPayment);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("LEASE|%s|%s|%s|%s|%s|%s|%s|%s",
+                getDate(),
+                getCustomerName(),
+                getCustomerEmail(),
+                getVehicleSold(),
+                getExpectedEndingValue(),
+                getLeaseFee(),
+                getTotalPrice(),
+                getMonthlyPayment());
     }
 }

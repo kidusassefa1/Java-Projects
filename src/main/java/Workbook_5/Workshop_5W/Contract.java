@@ -51,4 +51,5 @@ public abstract class Contract {
     public abstract BigDecimal getTotalPrice();
 
     public abstract BigDecimal getMonthlyPayment();
+
 }
